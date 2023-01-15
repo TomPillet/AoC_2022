@@ -1,5 +1,5 @@
-var fs = require('fs');
-const input = fs.readFileSync('/home/tompillet/Documents/0 - Coding/AOC/Day_01/input.txt', 'utf-8').split(/\n/);
+const fs = require('fs');
+const input = fs.readFileSync(__dirname+'/input.txt', 'utf-8').split(/\n/);
 
 // PART ONE
 var max = 0,
@@ -57,3 +57,5 @@ const part2 = (rawInput) => {
     .slice(0, 3)
     .reduce((a, b) => a + b, 0)
 }
+
+console.log(part1, part2);

@@ -1,5 +1,5 @@
-var fs = require('fs');
-const input = fs.readFileSync('/home/tompillet/Documents/0 - Coding/AOC/Day_02/input.txt', 'utf-8');
+const fs = require('fs');
+const input = fs.readFileSync(__dirname+'/input.txt', 'utf-8').split(/\n/);
 
 const game = input.split(/\n/);
 
