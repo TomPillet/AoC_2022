@@ -1,5 +1,5 @@
 const fs = require('fs');
-const input = fs.readFileSync(__dirname+'/input.txt', 'utf-8').split(/\n/);
+const input = fs.readFileSync(__dirname+'/input.txt', 'utf-8').trim().split(/\n/);
 
 // PART ONE
 var max = 0,

@@ -1,7 +1,5 @@
 const fs = require('fs');
-const input = fs.readFileSync(__dirname+'/input.txt', 'utf-8').split(/\n/);
-
-const game = input.split(/\n/);
+const input = fs.readFileSync(__dirname+'/input.txt', 'utf-8').trim().split(/\n/);
 
 const scoreTransform = {
         
@@ -42,7 +40,7 @@ const rulesOne = {
 
 };
 
-console.log(getGameResult(game, rulesOne));
+console.log(getGameResult(input, rulesOne));
 
 
 // PART TWO
@@ -77,5 +75,5 @@ const rulesTwo = {
     
 }
 
-const formatedGame = game.map(round => strategyGuide[round]);
+const formatedGame = input.map(round => strategyGuide[round]);
 console.log(getGameResult(formatedGame, rulesTwo));
