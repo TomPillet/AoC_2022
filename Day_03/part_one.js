@@ -3,16 +3,15 @@ const input = fs.readFileSync(__dirname+'/input.txt', 'utf-8').trim().split(/\n/
 
 // TODO : vérification si la longueur du sample est paire ou impaire
 
-const commonItems = input.map(sample => {
-    let halfLenght = sample.length / 2; 
-    let halfSample = sample.substring(halfLenght);
-
+const commonItems = input.map(rucksack => {
+    let halfLenght = rucksack.length / 2; 
+    let halfRucksack = rucksack.substring(halfLenght);
     let commonItem = '';
 
-    for (let i=0; i < halfLenght; i++) {
-        if (halfSample.includes(sample[i])) {
-            commonItem = sample[i];
-            i = halfLenght;
+    for (let charIndex = 0; charIndex < halfLenght; charIndex++) {
+        if (halfRucksack.includes(rucksack[i])) {
+            commonItem = rucksack[charIndex];
+            charIndex = halfLenght;
         }
     }  
 
@@ -20,8 +19,7 @@ const commonItems = input.map(sample => {
 });
 
 const formatedItems = commonItems.map(item => {
-    let priority = 0;
-    if (item === item.toUpperCase()) priority = 26;
+    let priority = (item === item.toUpperCase()) ? 26 : 0;
 
     item = item.toUpperCase();
     priority += parseInt(item.replace(/[A-Z]/g, i => i.toUpperCase().charCodeAt(0) - 64));
@@ -29,6 +27,4 @@ const formatedItems = commonItems.map(item => {
     return priority;
 })
 
-const prioritySum = formatedItems.reduce((a,c) => a+c, 0)
-
-console.log(prioritySum);
+console.log(formatedItems.reduce((a,c) => a+c, 0));
