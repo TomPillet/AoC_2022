@@ -3,14 +3,6 @@ const input = fs.readFileSync(__dirname+'/input.txt', 'utf-8').trim().split(/\n/
 
 // TODO : vérification si la longueur du sample est paire ou impaire
 
-const test = 
-`vJrwpWtwJgWrhcsFMMfFFhFp
-jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL
-PmmdzqPrVvPwwTWBwg
-wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn
-ttgJtRGJQctTZtZT
-CrZsJsPPZsGzwwsLwLmpwMDw`.split(/\n/);
-
 const commonItems = input.map(sample => {
     let halfLenght = sample.length / 2; 
     let halfSample = sample.substring(halfLenght);
@@ -26,8 +18,6 @@ const commonItems = input.map(sample => {
 
     return commonItem;
 });
-
-console.log(commonItems);
 
 const formatedItems = commonItems.map(item => {
     let priority = 0;
