@@ -10,18 +10,29 @@ function parsePairsData(data) {
 
     for (let i = 0; i < formatedData.length; i++) {
         const formatedSectionFirstElf = formatedData[i][0].split('-');
-        const minSectionFirstElf = parseInt(formatedSectionFirstElf[0]);
-        const maxSectionFirstElf = parseInt(formatedSectionFirstElf[1]);
+        let minSectionFirstElf = parseInt(formatedSectionFirstElf[0]);
+        let maxSectionFirstElf = parseInt(formatedSectionFirstElf[1]);
         
         const formatedSectionSecondElf = formatedData[i][1].split('-');
-        const minSectionSecondElf = parseInt(formatedSectionSecondElf[0]);
-        const maxSectionSecondElf = parseInt(formatedSectionSecondElf[1]);
+        let minSectionSecondElf = parseInt(formatedSectionSecondElf[0]);
+        let maxSectionSecondElf = parseInt(formatedSectionSecondElf[1]);
     
+    // PART ONE
+        // if ((minSectionFirstElf <= minSectionSecondElf && maxSectionFirstElf >= maxSectionSecondElf)
+        //     || (minSectionFirstElf >= minSectionSecondElf && maxSectionFirstElf <= maxSectionSecondElf))
+        // {
+        //     countPairsOverlaps++;
+        // }
 
-        if ((minSectionFirstElf <= minSectionSecondElf && maxSectionFirstElf >= maxSectionSecondElf)
-            || (minSectionFirstElf >= minSectionSecondElf && maxSectionFirstElf <= maxSectionSecondElf))
-        {
-            countPairsOverlaps++;
+    // PART TWO
+        while (minSectionFirstElf <= maxSectionFirstElf) {
+            
+            if (minSectionFirstElf >= minSectionSecondElf && minSectionFirstElf <= maxSectionSecondElf) {
+                countPairsOverlaps++;
+                minSectionFirstElf = maxSectionFirstElf+1;
+            }
+
+            minSectionFirstElf++;
         }
     }
 
