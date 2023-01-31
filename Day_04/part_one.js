@@ -2,11 +2,11 @@ const fs = require('fs');
 // const test = fs.readFileSync(__dirname+'/test.txt', 'utf-8').trim().split(/\n/);
 const input = fs.readFileSync(__dirname+'/input.txt', 'utf-8').trim().split(/\n/);
 
-console.log(parseData(input));
+console.log(parsePairsData(input));
 
-function parseData(data) {
+function parsePairsData(data) {
     const formatedData = data.map(x => x.split(','));
-    let countCommonRanges = 0;
+    let countPairsOverlaps = 0;
 
     for (let i = 0; i < formatedData.length; i++) {
         const formatedSectionFirstElf = formatedData[i][0].split('-');
@@ -21,9 +21,9 @@ function parseData(data) {
         if ((minSectionFirstElf <= minSectionSecondElf && maxSectionFirstElf >= maxSectionSecondElf)
             || (minSectionFirstElf >= minSectionSecondElf && maxSectionFirstElf <= maxSectionSecondElf))
         {
-            countCommonRanges++;
+            countPairsOverlaps++;
         }
     }
 
-    return countCommonRanges;
+    return countPairsOverlaps;
 }
